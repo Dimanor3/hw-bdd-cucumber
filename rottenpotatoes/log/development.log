@@ -565,3 +565,30 @@ Started GET "/assets/application.self.js?body=1" for 99.0.112.220 at 2015-11-10 
 
 
 Started GET "/assets/application.self.css?body=1" for 99.0.112.220 at 2015-11-10 00:57:02 +0000
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BPG%5D=1&ratings%5BR%5D=1&commit=Refresh" for 152.15.113.4 at 2015-11-10 19:52:18 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"PG"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+Redirected to https://software-engineering-cgrafer.c9.io/movies?ratings%5BPG%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BPG%5D=1&ratings%5BR%5D=1" for 152.15.113.4 at 2015-11-10 19:52:18 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"PG"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('PG', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (49.0ms)
+Completed 200 OK in 284ms (Views: 271.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 152.15.113.4 at 2015-11-10 19:52:19 +0000
+
+
+Started GET "/assets/jquery.self.js?body=1" for 152.15.113.4 at 2015-11-10 19:52:19 +0000
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 152.15.113.4 at 2015-11-10 19:52:19 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 152.15.113.4 at 2015-11-10 19:52:19 +0000
