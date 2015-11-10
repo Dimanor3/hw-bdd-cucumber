@@ -90,6 +90,13 @@ When /^(?:|I )check "([^"]*)"$/ do |field|
   check(field)
 end
 
+# Part II.2 - for checkiong multiple ratings at once
+When /^(?:|I )check the following ratings: "([^"]*)"$/ do |field|
+  debbuger
+  check(field)
+end
+
+
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
   uncheck(field)
 end
