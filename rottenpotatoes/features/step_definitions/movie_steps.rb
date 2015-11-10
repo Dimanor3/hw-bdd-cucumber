@@ -38,6 +38,18 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   
 end
 
+
+
+Then /I should see movies rated: (.*)/ do |movie|
+    pending # express the regexp above with the code you wish you had
+end
+
+Then /I should not see movies rated: (.*)/ do |movie|
+    pending # express the regexp above with the code you wish you had
+end
+
+
+
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
   fail "Unimplemented"
