@@ -41,51 +41,24 @@ end
 
 
 Then /I should see movies rated: (.*)/ do |ratings_string|
-  ratings_array = ratings_string.split(", ")
+  search_string = ratings_string.split(",")
   
-  #get the table that came back
-  table = page.all("tr")
-  
-  #drop 1 to remove the table headers
-  table.drop(1).each do |row|
-    #split at date column
-    row_split_at_date = row.text.split(/\d{4}-\d{2}-\d{2}/)
-    
-    #take name and rating, remove white space, and split into pieces
-    #last piece is rating
-    name_and_rating = row_split_at_date[0].strip.split(" ")
-    rating = name_and_rating.last
-    
-    #check that ratings_array includes rating
-     fail "Rating not in ratings list" unless ratings_array.include? rating 
-      
+  Movie.where(:rating => search_string).each do |movie|
+     step(%Q{I should see "#{movie.id}"})
   end
 end
 
 Then /I should not see movies rated: (.*)/ do |ratings_string|
-  ratings_array = ratings_string.split(", ")
-  
-  #get the table that came back
-  table = page.all("tr")
-  
-  #drop 1 to remove the table headers
-  table.drop(1).each do |row|
-    #split at date column
-    row_split_at_date = row.text.split(/\d{4}-\d{2}-\d{2}/)
-    
-    #take name and rating, remove white space, and split into pieces
-    #last piece is rating
-    name_and_rating = row_split_at_date[0].strip.split(" ")
-    rating = name_and_rating.last
-    
-    #check that ratings_array includes rating
-    fail if ratings_array.include? rating
+  search_string = ratings_string.split(",")
+
+  Movie.where(:rating => search_string).each do |movie|
+     step(%Q{I should see "#{movie.id}"})
   end
 end
 
 
 
-Then /I should see all the movies/ do
+Then /I should see all the movies in movie_steps.rb./ do
   # Make sure that all the movies in the app are visible in the table
-  Movie.all
+  step(%Q{I should see movies rated: G, PG, R, NC-17, PG-13})
 end

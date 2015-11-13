@@ -39,8 +39,8 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 
 Scenario: all ratings selected
   # see assignment
-  When I check the following ratings: PG, R, G, NC-17, PG-13
+  When I check the following ratings: PG, G, R, NC-17, PG-13
     And I press "Refresh"
     
-  Then I should see all the movies
+  Then I should see all the movies in movie_steps.rb. 
   
